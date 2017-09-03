@@ -25,15 +25,13 @@ export default {
 
     methods: {
         async addNote() {
-            console.log('addNote', this.newNote);
             if (this.newNote) {
-                await Meteor.callPromise('notes.add', { text: this.newNote });
+                await Meteor.call('notes.add', { text: this.newNote });
                 this.newNote = '';
             }
         },
 
         addLimit() {
-            console.log('add limit');
             this.limit++;
         },
     },
